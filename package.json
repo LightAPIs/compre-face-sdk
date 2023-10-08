@@ -1,0 +1,62 @@
+{
+  "name": "@dragonish/compre-face-sdk",
+  "type": "module",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Exadel CompreFace Rest API TypeScript SDK",
+  "author": "Light",
+  "license": "MIT",
+  "homepage": "https://github.com/LightAPIs/compre-face-sdk",
+  "repository": "LightAPIs/compre-face-sdk",
+  "main": "./index.js",
+  "exports": {
+    "import": "./index.js",
+    "require": "./index.umd.cjs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "tsx ./check.ts && cross-env NODE_NO_WARNINGS=1 mocha",
+    "postinstall": "tsx ./env.ts"
+  },
+  "engines": {
+    "node": ">=16.17.0 <17.0.0 || >=18.0.0"
+  },
+  "keywords": [
+    "exadel",
+    "CompreFace",
+    "compre-face",
+    "SDK",
+    "Face Recognition"
+  ],
+  "publishConfig": {
+    "directory": "publish"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.6",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "chai": "^4.3.10",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.50.0",
+    "mocha": "^10.2.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "tsx": "^3.13.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.6.0"
+  },
+  "dependencies": {
+    "axios": "^1.5.1"
+  },
+  "mocha": {
+    "ui": "bdd",
+    "spec": [
+      "test/**/**.spec.ts"
+    ],
+    "loader": "tsx",
+    "bail": true
+  }
+}
