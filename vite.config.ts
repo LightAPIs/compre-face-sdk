@@ -30,7 +30,6 @@ export default defineConfig({
     dts({ rollupTypes: true }),
     copy({
       targets: [
-        { src: 'package.json', dest: 'publish' },
         { src: 'README.md', dest: 'publish' },
         { src: 'LICENSE', dest: 'publish' },
       ],
