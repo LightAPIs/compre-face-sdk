@@ -454,7 +454,7 @@ export class FaceRecognitionService extends CompreFaceBase {
    * @param options options
    * @returns full URL
    */
-  getURLOfAddAnExample(subject: string | number, options: Omit<AddAnExampleOptions, 'file' | 'filename'>): string {
+  getURLOfAddAnExample(subject: string | number, options: Omit<AddAnExampleOptions, 'file' | 'filename'> = {}): string {
     return this.url + this.joinPathOfAddAnExample(subject, options);
   }
 
@@ -613,7 +613,7 @@ export class FaceRecognitionService extends CompreFaceBase {
    * @param options options
    * @returns full URL
    */
-  getURLOfRecognizeFaces(options: Omit<RecognizeFacesOptions, 'file' | 'filename'>): string {
+  getURLOfRecognizeFaces(options: Omit<RecognizeFacesOptions, 'file' | 'filename'> = {}): string {
     return this.url + this.joinPathOfRecognizeFaces(options);
   }
 
@@ -782,7 +782,7 @@ export class FaceDetectionService extends CompreFaceBase {
    * @param options options
    * @returns full URL
    */
-  getURLOfFaceDetection(options: Omit<FaceDetectionOptions, 'file'>): string {
+  getURLOfFaceDetection(options: Omit<FaceDetectionOptions, 'file'> = {}): string {
     return this.url + this.joinPathOfFaceDetection(options);
   }
 
@@ -851,7 +851,7 @@ export class FaceVerificationService extends CompreFaceBase {
    * @param options options
    * @returns full URL
    */
-  getURLOfFaceVerification(options: Omit<FaceVerificationOptions, 'sourceImage' | 'targetImage'>): string {
+  getURLOfFaceVerification(options: Omit<FaceVerificationOptions, 'sourceImage' | 'targetImage'> = {}): string {
     return this.url + this.joinPathOfFaceVerification(options);
   }
 

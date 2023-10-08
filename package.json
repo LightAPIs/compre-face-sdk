@@ -2,7 +2,7 @@
   "name": "@dragonish/compre-face-sdk",
   "type": "module",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Exadel CompreFace Rest API TypeScript SDK",
   "author": "Light",
   "license": "MIT",
