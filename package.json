@@ -2,7 +2,7 @@
   "name": "@dragonish/compre-face-sdk",
   "type": "module",
   "private": false,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Exadel CompreFace Rest API TypeScript SDK",
   "author": "Light",
   "license": "MIT",
@@ -15,7 +15,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsx ./build.ts",
+    "build": "vite build",
+    "postbuild": "tsx ./build.ts",
     "test": "tsx ./check.ts && cross-env NODE_NO_WARNINGS=1 mocha",
     "postinstall": "tsx ./env.ts"
   },
@@ -50,13 +51,5 @@
   },
   "dependencies": {
     "axios": "^1.5.1"
-  },
-  "mocha": {
-    "ui": "bdd",
-    "spec": [
-      "test/**/**.spec.ts"
-    ],
-    "loader": "tsx",
-    "bail": true
   }
 }

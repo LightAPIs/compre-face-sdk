@@ -8,7 +8,7 @@ try {
   const publishPackage = JSON.stringify(
     sourcePackage,
     (key, value) => {
-      if (!['scripts', 'mocha', 'publishConfig'].includes(key)) {
+      if (!['scripts', 'publishConfig'].includes(key)) {
         return value;
       } else {
         return undefined;
