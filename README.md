@@ -35,7 +35,7 @@ const frs = new FaceRecognitionService('<api url>', '<api key>');
 | `deleteMultipleExamples()` | Delete Multiple Examples |
 | `DirectImageExample()` | Direct Download an Image example of the Subject by ID |
 | `downloadImageExample()` | Download an Image example of the Subject by ID |
-| `getURLOfRecognizeFaces` | Get the full URL of "Recognize Faces from a Given Image" |
+| `getURLOfRecognizeFaces()` | Get the full URL of "Recognize Faces from a Given Image" |
 | `recognizeFaces()` | Recognize Faces from a Given Image |
 | `recognizeFacesByEmbedding()` | Recognize Faces from a Given Image, Embedding |
 | `getURLOfVerifyFaces()` | Get the full URL of "Verify Faces from a Given Image" |
