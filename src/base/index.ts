@@ -7,11 +7,12 @@ export interface GetFileParams {
 }
 
 export interface ExadelHeaders {
-  [key: string]: string | undefined;
-  'Content-Type'?: 'application/json' | 'multipart/form-data';
+  [key: string]: string;
+  'Content-Type': 'application/json' | 'multipart/form-data';
 }
 
-export interface ExadelFaceHeaders extends ExadelHeaders {
+export interface ExadelFaceHeaders {
+  [key: string]: string;
   'x-api-key': string;
 }
 
@@ -48,11 +49,13 @@ abstract class CompreFaceBase {
    * @param headers Custom request headers
    * @returns Exadel face request headers (contains `"x-api-key"`)
    */
-  faceHeadersGenerator(headers: ExadelHeaders = {}): ExadelFaceHeaders {
+  faceHeadersGenerator(headers?: ExadelHeaders): ExadelFaceHeaders {
     const exadelFaceHeaders: ExadelFaceHeaders = {
       'x-api-key': this.key,
     };
-    Object.assign<ExadelFaceHeaders, ExadelHeaders>(exadelFaceHeaders, headers);
+    if (headers) {
+      Object.assign<ExadelFaceHeaders, ExadelHeaders>(exadelFaceHeaders, headers);
+    }
     return exadelFaceHeaders;
   }
 
@@ -62,7 +65,7 @@ abstract class CompreFaceBase {
    * @param headers Custom request headers
    * @returns
    */
-  protected async faceGet<ReturnType>(path: string, headers: ExadelHeaders = {}) {
+  protected async faceGet<ReturnType>(path: string, headers?: ExadelHeaders) {
     try {
       const response = await axios.get<ReturnType>(this.url + path, {
         headers: this.faceHeadersGenerator(headers),
@@ -84,7 +87,7 @@ abstract class CompreFaceBase {
   protected async faceGetFile<InputType extends keyof GetFileParams>(
     path: string,
     responseType: InputType,
-    headers: ExadelHeaders = {}
+    headers?: ExadelHeaders
   ): Promise<GetFileParams[InputType] | null> {
     try {
       const response = await axios.get<GetFileParams[InputType]>(this.url + path, {
@@ -104,7 +107,7 @@ abstract class CompreFaceBase {
    * @param headers Custom request headers
    * @returns
    */
-  protected async faceDelete<ReturnType>(path: string, headers: ExadelHeaders = {}) {
+  protected async faceDelete<ReturnType>(path: string, headers?: ExadelHeaders) {
     try {
       const response = await axios.delete<ReturnType>(this.url + path, {
         headers: this.faceHeadersGenerator(headers),
@@ -123,7 +126,7 @@ abstract class CompreFaceBase {
    * @param headers Custom request headers
    * @returns
    */
-  protected async facePost<ReturnType, ParamType = unknown>(path: string, data: ParamType, headers: ExadelHeaders = {}) {
+  protected async facePost<ReturnType, ParamType = unknown>(path: string, data: ParamType, headers?: ExadelHeaders) {
     try {
       const response = await axios.post<ReturnType>(this.url + path, data, {
         headers: this.faceHeadersGenerator(headers),
@@ -142,7 +145,7 @@ abstract class CompreFaceBase {
    * @param headers Custom request headers
    * @returns
    */
-  protected async facePut<ReturnType, ParamType = unknown>(path: string, data: ParamType, headers: ExadelHeaders = {}) {
+  protected async facePut<ReturnType, ParamType = unknown>(path: string, data: ParamType, headers?: ExadelHeaders) {
     try {
       const response = await axios.put<ReturnType>(this.url + path, data, {
         headers: this.faceHeadersGenerator(headers),
